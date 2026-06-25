@@ -6,14 +6,13 @@ import RevenueChart from './components/RevenueChart'
 
 const App = () => {
   return (
-    <div className='flex justify-center min-h-full font-serif text-emerald-800'>
+    <div className='flex justify-center min-h-screen font-serif text-emerald-800 '>
       <SideBar />
-
-      <div className='flex flex-col w-full h-screen'>
+      <div className='flex-1'>
         <TopBar />
-        <main className='h-full flex flex-col gap-3 bg-slate-50 p-8'>
-          <RecentOrders />
+        <main className='p-6 space-y-6 bg-emerald-100/20'>
           <RevenueChart />
+          <RecentOrders />
         </main>
       </div>
     </div>
