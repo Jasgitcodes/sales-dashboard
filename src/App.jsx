@@ -6,11 +6,11 @@ import RevenueChart from './components/RevenueChart'
 
 const App = () => {
   return (
-    <div className='flex min-h-screen  w-full bg-indigo-100 text-indigo-800 font-sans'>
+    <div className='flex min-h-screen bg-indigo-50 text-indigo-800 font-sans'>
       <SideBar />
-      <div className='flex flex-col w-full min-h-screen'>
+      <div className='flex-1'>
         <TopBar />
-        <main className=' bg-indigo-50 space-y-6 p-6'>
+        <main className='h-full bg-indigo-100/50 space-y-6 p-5'>
           <RevenueChart />
           <RecentOrders />
         </main>
