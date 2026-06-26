@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className='flex min-h-screen bg-indigo-50 text-indigo-800 font-sans'>
       <SideBar />
-      <div className='flex-1'>
+      <div className='flex-1 h-full'>
         <TopBar />
         <main className='h-full bg-indigo-100/50 space-y-6 p-5'>
           <RevenueChart />

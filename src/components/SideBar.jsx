@@ -5,7 +5,7 @@ const SideBar = () => {
 
     const [active, setActive] = useState("Overview")
     return (
-        <div className='flex flex-col border-l  border-indigo-300 w-60 p-5 text-sm gap-6'>
+        <aside className='flex flex-col w-60 p-5 text-sm gap-6 bg-indigo-900 text-white'>
             <div className='flex items-center justify-center -2' >
                 <div className='w-6 h-6 mr-2  bg-indigo-800 rounded-lg'></div>
                 <h3 className='text-lg font-semibold'>Developer</h3>
@@ -27,7 +27,7 @@ const SideBar = () => {
                     )
                 })}
             </nav>
-        </div>
+        </aside>
     )
 }
 
