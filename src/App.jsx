@@ -1,21 +1,28 @@
 import React from 'react'
-import SideBar from './components/SideBar'
-import TopBar from './components/TopBar'
-import RecentOrders from './components/RecentOrders'
-import RevenueChart from './components/RevenueChart'
+import { Route, Routes } from 'react-router-dom'
+import Layout from './components/Layout'
+import Overview from './pages/Overview'
+import ProductsPage from './pages/ProductsPage'
+import CustomersPage from './pages/CustomersPage'
+import SettingsPage from './pages/SettingsPage'
+import { useProducts } from './context/ProductContext'
 
 const App = () => {
+
+  // const { products, loading, error } = useProducts()
+
+  // if (error) return <p className='text-rose-500'>{error}</p>
+
+  // console.log(products)
   return (
-    <div className='flex min-h-screen bg-indigo-50 text-indigo-800 font-sans'>
-      <SideBar />
-      <div className='flex-1 h-full'>
-        <TopBar />
-        <main className='h-full bg-indigo-100/50 space-y-6 p-5'>
-          <RevenueChart />
-          <RecentOrders />
-        </main>
-      </div>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path='/' element={<Overview />} />
+        <Route path='/orders' element={<ProductsPage />} />
+        <Route path='/customers' element={<CustomersPage />} />
+        <Route path='/Settings' element={<SettingsPage />} />
+      </Route>
+    </Routes>
   )
 }
 
