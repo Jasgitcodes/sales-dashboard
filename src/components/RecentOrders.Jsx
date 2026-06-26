@@ -1,16 +1,11 @@
 import { Search } from 'lucide-react'
 import React, { useState } from 'react'
 import { orders } from '../data/data'
-
+import StatusBadge from './StatusBadge'
 const RecentOrders = () => {
 
     const [query, setQuery] = useState("")
     const filtered = orders.filter((order) => order.customer.toLowerCase().includes(query.toLowerCase()))
-    const badge = {
-        paid: "px-3 py-1.5 bg-emerald-100 text-emerald-900 border-x border-emerald-500 rounded-full",
-        pending: "px-3 py-1.5 bg-indigo-100 text-indigo-900 border-x border-indigo-500 rounded-full",
-        failed: "px-3 py-1.5 bg-rose-100 text-rose-900 border-x border-rose-500 rounded-full"
-    }
 
     return (
         <div className='p-5 border bg-indigo-50 border-indigo-300 flex flex-col gap-3 rounded-xl shadow-sm '>
@@ -39,17 +34,13 @@ const RecentOrders = () => {
                 </thead>
                 <tbody className='text-xs'>
                     {filtered.map((order) => {
-                        const statusBadge = order.status.toLowerCase()
                         return (
                             <tr key={order.id} className='hover:bg-indigo-200/40 '>
                                 <td className='py-3 pl-2 font-medium border-t border-indigo-200'>{order.id}</td>
                                 <td className='py-3 pl-2 font-medium border-t border-indigo-200'>{order.customer}</td>
                                 <td className='py-3 pl-2 font-medium border-t border-indigo-200'>{order.amount}</td>
                                 <td className='py-3  border-t border-indigo-200'>
-
-                                    <span className={`${badge[statusBadge] ?? "bg-indigo-900"} text-xs`}>
-                                        {order.status}
-                                    </span>
+                                    <StatusBadge status={order.status} />
                                 </td>
                             </tr>
 
