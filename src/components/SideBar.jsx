@@ -19,7 +19,7 @@ const SideBar = () => {
                         <button
                             key={navItem.name}
                             onClick={() => setActive(navItem.name)}
-                            className={`flex w-full gap-2 px-3 py-2 rounded-md ${isActive ? "bg-indigo-200" : "hover:bg-indigo-200/40"}`}
+                            className={`flex w-full gap-2 px-3 py-2 rounded-md ${isActive ? "bg-indigo-200/40 font-medium" : "hover:bg-indigo-200/20"}`}
                         >
                             <Icon size={20} />
                             {navItem.name}
