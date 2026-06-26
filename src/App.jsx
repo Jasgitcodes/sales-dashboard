@@ -1,21 +1,30 @@
 import React from 'react'
-import SideBar from './components/SideBar'
-import TopBar from './components/TopBar'
-import RecentOrders from './components/RecentOrders'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import OverviewPage from './pages/OverviewPage'
+import Products from './pages/Products'
+import CustomerPage from './pages/CustomerPage'
+import SettingsPage from './pages/SettingsPage'
 import RevenueChart from './components/RevenueChart'
+import RecentOrders from './components/RecentOrders'
+import { useProducts } from './context/ProductContext'
+
+
 
 const App = () => {
+  const { products, loading, error } = useProducts()
+
+  console.log(products)
   return (
-    <div className='flex justify-center min-h-screen font-serif text-emerald-800 '>
-      <SideBar />
-      <div className='flex-1'>
-        <TopBar />
-        <main className='p-6 space-y-6 bg-emerald-100/20'>
-          <RevenueChart />
-          <RecentOrders />
-        </main>
-      </div>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path='/' element={<OverviewPage />} />
+        {/* <Route path='/overview' element={<OverviewPage />} /> */}
+        <Route path='/orders' element={<Products />} />
+        <Route path='/customers' element={<CustomerPage />} />
+        <Route path='/settings' element={<SettingsPage />} />
+      </Route>
+    </Routes>
   )
 }
 

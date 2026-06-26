@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { navItems } from '../data/data'
-
+import { NavLink } from 'react-router-dom'
 const SideBar = () => {
 
     const [active, setActive] = useState("Overview")
@@ -16,7 +16,8 @@ const SideBar = () => {
                     const Icon = navItem.icon
                     const isActive = navItem.name === active
                     return (
-                        <button
+                        <NavLink
+                            to={navItem.to}
                             key={navItem.name}
                             onClick={() => {
                                 setActive(navItem.name)
@@ -26,7 +27,7 @@ const SideBar = () => {
                         >
                             <Icon size={20} />
                             {navItem.name}
-                        </button>
+                        </NavLink>
                     )
 
                 })}
