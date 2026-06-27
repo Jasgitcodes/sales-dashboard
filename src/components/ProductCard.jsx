@@ -3,7 +3,7 @@ import { useProducts } from '../context/ProductContext'
 
 const ProductCard = ({ products }) => {
     return (
-        <div className="min-h-72 bg-slate-100 rounded-md shadow-md p-4 flex flex-col justify-between hover:scale-[1.03]" >
+        <div className="min-h-72 bg-slate-100 rounded-md shadow-md p-4 flex flex-col justify-between border cursor-pointer hover:bg-indigo-100/90 hover:scale-[1.03] hover:transition-all duration-300" >
             {/* <div className='rounded-md  border bg-red-200'> */}
             <img
                 src={products.image}

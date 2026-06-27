@@ -9,11 +9,11 @@ import { useProducts } from './context/ProductContext'
 
 const App = () => {
 
-  // const { products, loading, error } = useProducts()
+  const { products, loading, error } = useProducts()
 
-  // if (error) return <p className='text-rose-500'>{error}</p>
+  if (error) return <p className='text-rose-500'>{error}</p>
 
-  // console.log(products)
+  console.log(products)
   return (
     <Routes>
       <Route element={<Layout />}>
