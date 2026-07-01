@@ -6,12 +6,13 @@ import ProductsPage from './pages/ProductsPage'
 import CustomersPage from './pages/CustomersPage'
 import SettingsPage from './pages/SettingsPage'
 import { useProducts } from './context/ProductContext'
+import NotFound from './pages/NotFound'
 
 const App = () => {
 
   const { products, loading, error } = useProducts()
 
-  if (error) return <p className='text-rose-500'>{error}</p>
+  // if (error) return <p className='text-rose-500'>{{error}}</p>
 
   console.log(products)
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/orders' element={<ProductsPage />} />
         <Route path='/customers' element={<CustomersPage />} />
         <Route path='/Settings' element={<SettingsPage />} />
+        <Route path='/*' element={<NotFound />} />
       </Route>
     </Routes>
   )

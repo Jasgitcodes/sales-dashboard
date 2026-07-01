@@ -1,1 +1,11 @@
-@import 'tailwindcss'
+@import url("https://fonts.googleapis.com/css2?family=Gabriela&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-gabriela: "Gabriela", sans;
+  --font-sofia: "Sofia", sans;
+  --font-sofia-sans: "Sofia Sans", sans-serif;
+}
