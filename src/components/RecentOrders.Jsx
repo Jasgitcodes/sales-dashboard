@@ -5,7 +5,11 @@ import StatusBadge from './StatusBadge'
 const RecentOrders = () => {
 
     const [query, setQuery] = useState("")
-    const filtered = orders.filter((order) => order.customer.toLowerCase().includes(query.toLowerCase()))
+    const term = query.trim().toLowerCase()
+    const filtered = orders.filter((order) => {
+        return order.customer.toLowerCase().includes(term) ||
+            order.status.toLowerCase().includes(term)
+    })
 
     return (
         <div className='p-5 border bg-indigo-50 border-indigo-300 flex flex-col gap-3 rounded-xl shadow-sm '>
