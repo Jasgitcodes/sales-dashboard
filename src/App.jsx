@@ -17,8 +17,9 @@ const App = () => {
   console.log(products)
   return (
     <Routes>
-      <Route element={<Layout />}>
+      <Route element={<Layout />} >
         <Route path='/' element={<Overview />} />
+        <Route path='/overview' element={<Overview />} />
         <Route path='/orders' element={<ProductsPage />} />
         <Route path='/customers' element={<CustomersPage />} />
         <Route path='/Settings' element={<SettingsPage />} />

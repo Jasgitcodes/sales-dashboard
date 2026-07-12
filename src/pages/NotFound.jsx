@@ -6,7 +6,7 @@ import Overview from './Overview'
 const NotFound = () => {
     const navigate = useNavigate()
     return (
-        <div className=' w-sm max-w-md  mx-auto my-30 border bg-indigo-50 border-indigo-300 flex flex-col justify-between items-center gap-6 p-6 rounded-xl shadow-sm'>
+        <div className=' w-sm max-w-md  mx-auto my-30 flex flex-col justify-between items-center gap-6 p-6 rounded-xl shadow-xs'>
 
             <AlertTriangle size={40}/>
             <div className='flex flex-col gap-5 text-center items-center'>
