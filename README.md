@@ -1,16 +1,67 @@
-# React + Vite
+# Sales Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React dashboard built with Vite, Tailwind CSS, and React Router. The app presents a polished sales overview with responsive layouts, a mobile-friendly sidebar, and an interactive product detail experience.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project was designed as a polished dashboard UI for sales and product management. It includes a responsive layout, a mobile hamburger menu, product cards, a product detail page, and a clean overview experience for monitoring business activity.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Responsive dashboard layout for desktop and mobile screens
+- Slide-in mobile sidebar menu with smooth transitions
+- Overview page with revenue and recent orders views
+- Products page with searchable product cards
+- Product detail page with image, pricing, description, and order-style actions
+- Global Google Fonts styling with Gabriela and Sofia Sans
+- Product data fetched from the Fake Store API
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19
+- Vite
+- Tailwind CSS
+- React Router DOM
+- Lucide React icons
+- ESLint
+
+## Scripts
+
+- `npm install` — install dependencies
+- `npm run dev` — start the development server
+- `npm run build` — build the production bundle
+- `npm run preview` — preview the production build
+- `npm run lint` — run ESLint
+
+## Project Structure
+
+- `src/`
+  - `App.jsx` — main route configuration
+  - `components/` — shared UI pieces such as layout, sidebar, top bar, cards, and charts
+  - `context/` — React context for product data
+  - `data/` — dashboard mock data and navigation items
+  - `pages/` — route pages including overview, products, customers, settings, and product detail
+  - `index.css` — Tailwind setup and global font styling
+- `public/` — static assets
+- `package.json` — project dependencies and scripts
+
+## Getting Started
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Open the local Vite URL shown in your terminal.
+
+## Notes
+
+- Product data is currently loaded from the public Fake Store API.
+- The UI is designed to be easily extended with real backend services, authentication, or more analytics modules.
