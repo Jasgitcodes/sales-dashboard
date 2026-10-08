@@ -15,7 +15,10 @@ const ProductOverview = () => {
   if (error)
     return <p className="m-20 text-center text-rose-700">{error?.message}</p>;
 
-  const product = products.find((item) => item.id === Number(productId));
+  const product = products.find(
+    (item) =>
+      String(item.id ?? item._id) === String(productId),
+  );
   const rating = product?.rating?.rate ?? 0;
   const reviewCount = product?.rating?.count ?? 0;
 

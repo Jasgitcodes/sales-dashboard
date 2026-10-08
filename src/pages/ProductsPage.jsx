@@ -46,7 +46,7 @@ const ProductsPage = () => {
 
       <div className="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
         {filtered.map((product) => (
-          <ProductCard key={product.id} products={product} />
+          <ProductCard key={product.id ?? product._id} products={product} />
         ))}
 
         {filtered.length === 0 && (

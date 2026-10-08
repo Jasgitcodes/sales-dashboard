@@ -1,41 +1,48 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const ProductContext = createContext()
+const ProductContext = createContext();
 
 // import React from 'react'
 export function ProductProvider({ children }) {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const res = await fetch("https://fakestoreapi.com/products");
 
-        async function loadProducts() {
-
-            try {
-                const res = await fetch("https://fakestoreapi.com/products")
-
-                const data = await res.json()
-                setProducts(data)
-            } catch (error) {
-                setError(error, "Something went wrong")
-            } finally {
-                setLoading(false)
-            }
+        if (!res.ok) {
+          throw new Error("Failed to load products");
         }
 
-        loadProducts()
-    }, [])
+        const data = await res.json();
+        const normalized = Array.isArray(data)
+          ? data.map((product) => ({
+              ...product,
+              id: product.id ?? product._id,
+            }))
+          : [];
 
+        setProducts(normalized);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-    return (
-        <ProductContext.Provider value={{ products, loading, error }} >
-            {children}
-        </ProductContext.Provider>
-    )
+    loadProducts();
+  }, []);
+
+  return (
+    <ProductContext.Provider value={{ products, loading, error }}>
+      {children}
+    </ProductContext.Provider>
+  );
 }
 
-
 export function useProducts() {
-    return useContext(ProductContext)
+  return useContext(ProductContext);
 }

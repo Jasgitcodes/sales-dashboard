@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
         const loadUsers = async () => {
 
             try {
-                const res = await fetch("http://localhost:5000/users")
+                const res = await fetch("https://fakestoreapi.com/users")
 
                 const data = await res.json()
                 setUsers(data)

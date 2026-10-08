@@ -9,7 +9,7 @@ const ProductCard = ({ products }) => {
   return (
     <button
       type="button"
-      onClick={() => navigate(`/orders/${products.id}`)}
+      onClick={() => navigate(`/orders/${products.id ?? products._id}`)}
       className="group flex min-h-[18rem] flex-col justify-between rounded-2xl border border-indigo-100 bg-white/90 p-4 text-left shadow-[0_12px_35px_rgba(79,70,229,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(79,70,229,0.14)]"
     >
       <img
